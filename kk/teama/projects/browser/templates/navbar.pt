@@ -1,0 +1,17 @@
+<div class="visualClear"></div>
+
+<ul id="portal-subnavbar-categories"
+    tal:condition="view/available"
+><tal:listing repeat="brain view/navitems"
+    ><li tal:attributes="
+                       class brain/class"
+    ><a tal:attributes="href brain/url;
+                           title brain/title;"
+           tal:content="brain/title">
+      Nav stuff
+    </a
+    ></li
+></tal:listing
+></ul>
+
+<div class="visualClear"></div>

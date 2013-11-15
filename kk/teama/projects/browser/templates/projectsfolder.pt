@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+    <metal:content-core fill-slot="content-title"></metal:content-core>
+    <metal:content-core fill-slot="content-core">
+
+       <link rel="stylesheet" tal:attributes="href string:${here/portal_url}/jcarousellite.css"/>
+       <script type="text/javascript" src="jcarousellite_1.0.1.pack.js" tal:attributes="src string:${here/portal_url}/jcarousellite_1.0.1.js"></script>
+       <script type="text/javascript" src="jcarousellite_init.js" tal:attributes="src string:${here/portal_url}/jcarousellite_init.js"></script>
+
+       <script type="text/javascript" src="jcarousellite_init.js" tal:attributes="src string:${here/portal_url}/ta_toogle.js"></script>
+
+		<tal:entries tal:define = "	category python:request.get('category', '');
+									entries python:view.getProjects(category);
+									Batch python:modules['Products.CMFPlone'].Batch;
+									b_start python:request.get('b_start',0);
+									batch python:Batch(entries,20, int(b_start), orphan=1)">
+			<tal:loop tal:repeat = "item batch">
+                <div class="tileItem visualIEFloatFix"
+                     tal:define="item_object item/getObject;
+                     			 item_url item_object/absolute_url;
+                     			 item_description item/Description">
+					<div class="preview">
+                    <a href="#"
+                       tal:condition="exists:item_object/image_thumb"
+                       tal:attributes="href item_url">
+                        <img src=""  alt=""
+                             tal:replace="structure python: path('nocall:item_object/tag')(scale='thumb', css_class='tileProjectImage', alt='')" />
+                    </a>
+					
+                    <h2 class="tileHeadline"
+                        metal:define-macro="listitem">
+
+                        <a href="#"
+                           class="summary url"
+                           tal:attributes="href item_url;"
+                           tal:content="string:${item_object/getProjectDate} / ${item_object/Title}">
+                            Item Title
+                        </a>
+
+                    </h2>
+
+
+                    <p class="tileBody" tal:condition="item_description">
+                        <span class="description" tal:content="item_description">
+                            description
+                        </span>
+                    </p>
+
+                    <p class="tileFooter">
+                        <a class="read_more" href=""
+                           tal:attributes="href item_url;">
+                        Details einblenden >>
+                        </a>
+                    </p>
+                    </div>
+                    
+                    <div class="view">
+                   	 <p class="tileFooter">
+                        <a class="hide" href="">
+                        Details ausblenden >>
+                        </a>
+                   	 </p>                    
+                    	
+                    </div>
+
+                    <div class="visualClear"><!-- --></div>
+
+                </div>
+             </tal:loop>
+             <div metal:use-macro="here/batch_macros/macros/navigation" />
+		</tal:entries>
+		
+    </metal:content-core>
+
+</body>
+</html>

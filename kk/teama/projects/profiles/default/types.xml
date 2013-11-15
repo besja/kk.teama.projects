@@ -1,0 +1,11 @@
+<object name="portal_types" meta_type="Plone Types Tool">
+
+ <object name="ProjectsFolder"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="Project"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="ProjectCategoryFolder"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="Video"
+    meta_type="Factory-based Type Information with dynamic views"/>
+</object>

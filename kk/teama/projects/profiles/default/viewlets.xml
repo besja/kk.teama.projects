@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<object>
+
+  <order manager="plone.portalheader" skinname="*">
+    <viewlet name="kk.teama.categories_viewlet"
+             insert-after="plone.global_sections" remove="True" />
+  </order>
+  
+  
+</object>

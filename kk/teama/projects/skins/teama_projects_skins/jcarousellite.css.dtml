@@ -1,0 +1,75 @@
+
+/* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */ 
+
+.carousel .prev {
+	background: transparent url(&dtml-portal_url;/arrow-left.png) no-repeat scroll center;
+}
+
+.carousel .next {
+	background:  transparent url(&dtml-portal_url;/arrow-right.png) no-repeat scroll center;
+}
+
+.carousel .prev, .carousel .next {
+	display:block;
+	float:left;
+	height:40px;
+	text-decoration:none;
+	width:40px;
+}
+
+.jCarouselLite {
+	float:left;
+	left:-5000px;
+	position:relative;
+	visibility:hidden;
+	margin:0px;
+}
+
+.carousel {
+	position:relative;
+	width:400px;
+	float:left;
+	margin:0px 0px 20px 0px;
+}
+
+.jCarouselLite li {
+	list-style-type:none;
+	padding:1px;
+	display:table-cell;
+	text-align:center !important;
+	width:40px;
+	height:40px;
+	margin: 0px 3px 0px 0px;
+}
+
+.jCarouselLite li img {
+	height:40px !important;
+	width:auto !important;
+}
+
+.viewer {
+	clear:both;
+	width:380px;
+	height:284px;
+	border:0px #cccccc solid;
+	padding: 0px;
+	margin: 0px 0px 10px 0px;
+}
+
+.viewer img {
+	height:284px !important;
+	width:auto !important;
+}
+
+.tileProjectImage {
+	float:left;
+	margin:0 1em 1em 0;
+	border:0px #cccccc solid;
+}
+
+.tileItem .view {
+	display:none;
+}
+
+/* </dtml-with> */

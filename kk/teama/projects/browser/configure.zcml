@@ -1,0 +1,40 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="kk.teama.projects">
+
+    <browser:page
+        for="..interfaces.IProjectsFolder"
+        name="view"
+        class=".projectsfolder.ProjectsFolderView"
+        permission="zope2.View"
+        />
+    <browser:page
+        for="..interfaces.IProjectCategoryFolder"
+        name="view"
+        class=".projectsfolder.ProjectCategoryFolderView"
+        permission="zope2.View"
+        />
+    <browser:page
+        for="..interfaces.IProject"
+        name="view"
+        class=".project.ProjectView"
+        permission="zope2.View"
+        />
+
+     <browser:page
+        for="..interfaces.IVideo"
+        name="view"
+        class=".video.VideoView"
+        permission="zope2.View"
+        />
+     <!-- category browser viewlet -->
+     <!-- we don't need it anymore 
+     <browser:viewlet
+        name="kk.teama.categories_viewlet"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".navbar.NavBarViewlet"
+        permission="zope2.View" 
+        />
+     -->
+</configure>

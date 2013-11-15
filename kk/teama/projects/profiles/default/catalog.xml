@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="portal_catalog">
+ <index name="project_date" meta_type="FieldIndex">
+  <indexed_attr value="getProject_date"/>
+ </index>
+ <index name="project_categories" meta_type="KeywordIndex">
+  <indexed_attr value="getCategoriesIndex"/>
+ </index>
+</object>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="portal_skins" meta_type="Plone Skins Tool">
+ <object name="teama_projects_skins" meta_type="Filesystem Directory View"
+    directory="kk.teama.projects:skins/teama_projects_skins"/>
+
+ <skin-path name="*">
+  <layer name="teama_projects_skins" insert-after="custom" />
+ </skin-path>
+</object>

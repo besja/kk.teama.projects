@@ -1,0 +1,74 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+<metal:content-core fill-slot = "content-title">
+       <h1 tal:content="string:${context/getProjectDate} / ${context/Title}">
+       some title
+       </h1>
+
+       <link rel="stylesheet" tal:attributes="href string:${here/portal_url}/jcarousellite.css"/>
+       <script type="text/javascript" src="jcarousellite_1.0.1.pack.js" tal:attributes="src string:${here/portal_url}/jcarousellite_1.0.1.js"></script>
+       <script type="text/javascript" src="jcarousellite_init.js" tal:attributes="src string:${here/portal_url}/jcarousellite_init.js"></script>
+
+   		<script type="text/javascript">
+ 			jq(function() {
+ 				var view = jq("#content");
+ 				setup_carousel(jq(view));
+
+			});
+
+ 		</script>    
+
+</metal:content-core>
+<metal:content-core fill-slot="content-core">
+    <metal:content-core define-macro="content-core">
+<!--<div class="keywords" tal:content="structure context/getCategoriesList"></div>-->
+
+<div class="carousel main">
+     
+	<div class="viewer" tal:attributes="id context/UID" >
+ 	<img src="" alt="" tal:replace="structure python: path('nocall:context/tag')(scale='preview', css_class='carouselImage')" />
+	
+	</div>
+	<tal:x  tal:define="media python:view.getMedia()" tal:condition="python:len(media)>0">
+	
+	<a  href="javascript:void(0)" class="prev">&nbsp</a>
+    <div class="jCarouselLite" id="carousel">   
+    <ul>
+    	<li tal:repeat="m media">
+            <a tal:attributes="href m/url;  
+            				  class m/class">
+            
+            <img src="" alt="" tal:replace="structure python: path('nocall:m/obj/tag')(scale='thumb', css_class='carouselImage', alt='',title='')" />
+            </a>
+        </li>
+ 	</ul>    
+    
+    </div>
+    <a href="javascript:void(0)" class="next">&nbsp</a>
+    </tal:x>
+</div>
+
+        <metal:field use-macro="python:context.widget('text', mode='view')">
+    
+            Body text
+        </metal:field>
+    
+    </metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

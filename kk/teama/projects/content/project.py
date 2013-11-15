@@ -65,7 +65,14 @@ ProjectSchema = folder.ATFolderSchema.copy()  + Schema((
             label= 'help_enable_table_of_contents',
             description = "help_enable_table_of_contents_description"
             )
-    ),                                                  
+    ),  
+    BooleanField('imagesOrder', 
+    	required = False, 
+    	languageIndependent = True,
+    	widget = BooleanWidget(
+    		label = "Reverse sort order of gallery items"	
+    	)
+    )                                                
                                                              
 ))
 #ProjectSchema["subject"].schemata = "default"

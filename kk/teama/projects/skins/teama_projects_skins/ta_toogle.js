@@ -1,4 +1,6 @@
-jq(function() { 
+
+
+		jq(function() { 
     	    
     		jq("a.read_more").click(function(e) {
     			
@@ -15,9 +17,7 @@ jq(function() {
     					jq(view).find(".carousel").after(header);
     					jq(view).show();
     					setup_carousel(jq(view));
-    					jq(view).addClass('proccesed');
-    
-    				
+    					jq(view).addClass('proccesed');    				
     				});
     			}else {
     				jq(view).show();
@@ -29,7 +29,7 @@ jq(function() {
     			var view = jq(this).parents('.tileItem').find('.view');
     			var preview = jq(this).parents('.tileItem').find('.preview');
     			jq(view).hide();
-                       jq(preview).show();
+                jq(preview).show();
 
     			return false;
     	 	});

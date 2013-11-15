@@ -15,6 +15,8 @@ class ProjectView(BrowserView):
         query = {}
         query["portal_type"] = ["Image", "Video"]
         query["sort_on"] = "getObjPositionInParent"
+        if self.context.getImagesOrder(): 
+            query["sort_order"] = "reverse"
         query["path"] = "/".join(self.context.getPhysicalPath())
         media = ptool(**query)
         result = []

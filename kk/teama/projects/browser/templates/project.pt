@@ -16,11 +16,13 @@
        <script type="text/javascript" src="jcarousellite_init.js" tal:attributes="src string:${here/portal_url}/jcarousellite_init.js"></script>
 
    		<script type="text/javascript">
+
  			jq(function() {
  				var view = jq("#content");
  				setup_carousel(jq(view));
 
 			});
+
 
  		</script>    
 
@@ -29,7 +31,7 @@
     <metal:content-core define-macro="content-core">
 <!--<div class="keywords" tal:content="structure context/getCategoriesList"></div>-->
 
-<div class="carousel main">
+<div class="carousel main jcarousel-wrapper">
      
 	<div class="viewer" tal:attributes="id context/UID" >
  	<img src="" alt="" tal:replace="structure python: path('nocall:context/tag')(scale='preview', css_class='carouselImage')" />
@@ -37,8 +39,8 @@
 	</div>
 	<tal:x  tal:define="media python:view.getMedia()" tal:condition="python:len(media)>0">
 	
-	<a  href="javascript:void(0)" class="prev">&nbsp</a>
-    <div class="jCarouselLite" id="carousel">   
+	<a  href="javascript:void(0)" class="prev jcarousel-control-prev">&nbsp</a>
+    <div class="jCarouselLite jcarousel" id="carousel">   
     <ul>
     	<li tal:repeat="m media">
             <a tal:attributes="href m/url;  
@@ -50,7 +52,7 @@
  	</ul>    
     
     </div>
-    <a href="javascript:void(0)" class="next">&nbsp</a>
+    <a href="javascript:void(0)" class="next jcarousel-control-next">&nbsp</a>
     </tal:x>
 </div>
 

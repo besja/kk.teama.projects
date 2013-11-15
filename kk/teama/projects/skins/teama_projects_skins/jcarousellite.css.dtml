@@ -18,13 +18,6 @@
 	width:40px;
 }
 
-.jCarouselLite {
-	float:left;
-	left:-5000px;
-	position:relative;
-	visibility:hidden;
-	margin:0px;
-}
 
 .carousel {
 	position:relative;
@@ -33,7 +26,7 @@
 	margin:0px 0px 20px 0px;
 }
 
-.jCarouselLite li {
+.carousel li {
 	list-style-type:none;
 	padding:1px;
 	display:table-cell;
@@ -43,9 +36,12 @@
 	margin: 0px 3px 0px 0px;
 }
 
-.jCarouselLite li img {
+.carousel li img {
 	height:40px !important;
-	width:auto !important;
+	width:40px !important;
+}
+.carousel li  a {
+	display:block;
 }
 
 .viewer {
@@ -70,6 +66,42 @@
 
 .tileItem .view {
 	display:none;
+}
+/*
+This is the visible area of you carousel.
+Set a width here to define how much items are visible.
+The width can be either fixed in px or flexible in %.
+Position must be relative!
+*/
+.jcarousel {
+    position: relative;
+    overflow: hidden;
+    width:301px;
+    float:left;
+}
+
+/*
+This is the container of the carousel items.
+You must ensure that the position is relative or absolute and
+that the width is big enough to contain all items.
+*/
+#content .jcarousel ul {
+    width: 20000em;
+    position: relative;
+
+    /* Optional, required in this case since it's a <ul> element */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+These are the item elements. jCarousel works best, if the items
+have a fixed width and height (but it's not required).
+*/
+.jcarousel li {
+    /* Required only for block elements like <li>'s */
+    float: left;
 }
 
 /* </dtml-with> */
